@@ -1,0 +1,75 @@
+
+.griddle-wrap{
+    --primaryColor: #3b82f6;
+    --grayColor: #ddd;
+
+    input[type="text"]{
+        border: 1px solid var(--grayColor);
+        padding: .25rem; 
+        border-radius: .25rem;
+    }
+    label{
+        font-size: .875rem;
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+        input[type="checkbox"]{
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+    .griddle-table{
+        width: 100%; 
+        border-radius: .5rem; 
+        overflow: hidden; 
+        font-size: .875rem;
+    }
+    .griddle-table-heading{
+        background: #f5f5f5;
+        font-weight: bold;
+        th{
+            padding: .5rem 1rem;
+        }
+    }
+    .griddle-row{
+        border-bottom: 1px solid var(--grayColor);
+    }
+    .griddle-cell{
+        padding: .5rem 1rem;
+    }
+    .griddle-settings{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        background: #fff;
+        box-shadow: 0px 0px 5px var(--grayColor);
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    .griddle-settings-toggle{
+        color: var(--primaryColor);
+    }
+    .griddle-pagination{
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        gap: .5rem;
+        margin-top: .5rem;
+        .griddle-next-button, .griddle-previous-button{
+            padding: .25rem .5rem;
+            color: var(--primaryColor);
+            border: 1px solid var(--primaryColor);
+            border-radius: .25rem;
+            font-size: .75rem;
+            &:hover{
+                color: #fff;
+                background: var(--primaryColor);
+            }
+        }
+    }
+    .griddle-noResults{
+        text-align: center; 
+        padding: 100px 0;
+    }
+}

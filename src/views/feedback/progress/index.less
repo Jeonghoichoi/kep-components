@@ -1,0 +1,52 @@
+.loader {
+  --path: #3b3b3b;
+  --dot: #3b82f6;
+  --duration: 3s;
+  width: 92px;
+  height: 88px;
+  position: relative;
+}
+
+.loader:before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  display: block;
+  background: var(--dot);
+  top: 37px;
+  left: 19px;
+  transform: translate(-1px, -3px);
+  animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg polygon {
+  stroke-dasharray: 145 76 145 76;
+  stroke-dashoffset: 0;
+  animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+@keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
+  }
+  66% {
+    stroke-dashoffset: 147;
+  }
+  100% {
+    stroke-dashoffset: 221;
+  }
+}
+
+@keyframes dotTriangle {
+  33% {
+    transform: translate(19px, 29px)
+  }
+  66% {
+    transform: translate(30px, -4px)
+  }
+  100% {
+    transform: translate(-1px, -3px);
+  }
+}
