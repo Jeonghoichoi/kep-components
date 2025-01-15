@@ -20,11 +20,11 @@ const SideBarSetting = () => {
   const models = [
     {
       id: 1,
-      name: 'gpt-4o-mini',
+      name: 'GPT_4_O',
     },
     {
       id: 2,
-      name: 'gpt-4o-mini-2024-07-18',
+      name: 'CLAUDE_3_5',
     },
     {
       id: 3,

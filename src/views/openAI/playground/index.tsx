@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios, { AxiosResponse, AxiosError } from 'axios';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import PageInformation from '@/components/common/PageInformation';
 import SideBarSetting from './sidebarSetting';
@@ -30,6 +30,24 @@ const Playground = () => {
     title: 'Playground',
     description: ``,
   };
+
+  //데이터
+  const [chatModelMetaData, setChatModelMetaData] = useState({});
+  // Get 메서드
+  useEffect(() => {
+    axios
+      .get<any>('http://192.168.1.28:8080/api/v1/chat/stream')
+      .then((res: AxiosResponse) => {
+        // 성공 시 처리
+        setChatModelMetaData(res.data);
+      })
+      .catch((error: AxiosError) => {
+        // 오류 시 처리
+        console.error('AI 시연용 데이터 로드', error.message);
+      });
+  }, [chatModelMetaData]);
+
+  console.log(chatModelMetaData);
 
   // compare mode
   const [isCompareMode, setIsCompareMode] = useState<boolean>(false);
@@ -72,11 +90,11 @@ const Playground = () => {
               <div className="absolute mb-4 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                 <div className="flex flex-col gap-4">
                   <span className="font-bold">User</span>
-                  <p>미국의 수도는?</p>
+                  <p>대한민국의 수도는??</p>
                 </div>
                 <div className="flex flex-col gap-4 mt-8">
                   <span className="font-bold">Assistant</span>
-                  <p>워싱턴 DC 입니다.</p>
+                  <p>대한민국의 수도는 서울입니다.</p>
                 </div>
               </div>
             ) : (
@@ -120,11 +138,11 @@ const Playground = () => {
                 <div className="absolute mb-4 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                   <div className="flex flex-col gap-4">
                     <span className="font-bold">User</span>
-                    <p>미국의 수도는?</p>
+                    <p>대한민국의 수도는??</p>
                   </div>
                   <div className="flex flex-col gap-4 mt-8">
                     <span className="font-bold">Assistant</span>
-                    <p>워싱턴 DC 입니다.</p>
+                    <p>대한민국의 수도는 서울입니다.</p>
                   </div>
                 </div>
               </div>
