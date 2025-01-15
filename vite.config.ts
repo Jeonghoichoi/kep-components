@@ -28,6 +28,13 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
     // 서버 포트번호 변경
     server: {
       port: 8080,
+      proxy: {
+        '/api': {
+          target: 'http://192.168.1.28:8080/',
+          changeOrigin: true,
+          secure: false,
+        },
+      },
     },
     // vite config
     define: {

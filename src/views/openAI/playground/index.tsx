@@ -35,10 +35,21 @@ const Playground = () => {
   const [chatModelMetaData, setChatModelMetaData] = useState({});
   // Get 메서드
   useEffect(() => {
+    const payload = {
+      chatModelCode: 'GPT_4_O',
+      systemPrompt: '너는 어시스턴트야. 정확한 정보를 기반으로 사실만을 대답해줘.',
+      userPrompt: '대한민국의 수도는?',
+      temperatur: '0.8',
+      topP: '0.5',
+      topK: '50',
+      maxToken: '300',
+    };
     axios
-      .get<any>('http://192.168.1.28:8080/api/v1/chat/stream')
+      .post<any>('/api/v1/chat/stream', payload)
       .then((res: AxiosResponse) => {
         // 성공 시 처리
+        console.log(res);
+
         setChatModelMetaData(res.data);
       })
       .catch((error: AxiosError) => {
@@ -46,8 +57,6 @@ const Playground = () => {
         console.error('AI 시연용 데이터 로드', error.message);
       });
   }, [chatModelMetaData]);
-
-  console.log(chatModelMetaData);
 
   // compare mode
   const [isCompareMode, setIsCompareMode] = useState<boolean>(false);
