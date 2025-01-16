@@ -2,8 +2,10 @@ import { useState } from 'react';
 import IframeCardAdd from './iframeCardAdd';
 import { v4 as uuidv4 } from 'uuid';
 import { CardType } from '@/interfaces/UtilityInterface';
+import { faker } from '@faker-js/faker';
+
 const IframeCardList = () => {
-  const [cardInfo, setCardInfo] = useState<CardType []>([
+  const [cardInfo, setCardInfo] = useState<CardType[]>([
     {
       name: 'Project A',
       text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime consequuntur deleniti, unde ab ut in!',
@@ -16,7 +18,7 @@ const IframeCardList = () => {
   // 새로 입력되는 제목 & 내용
   const [newTitle, setNewTitle] = useState<string>('');
   const [newText, setNewText] = useState<string>('');
-  const newArray:{name: string, text: string} = { name: newTitle, text: newText };
+  const newArray: { name: string; text: string } = { name: newTitle, text: newText };
 
   //입력한 값 원래 배열에 push
   const onCreate = (): void => {
@@ -38,15 +40,13 @@ const IframeCardList = () => {
   };
   return (
     <div className="flex flex-col gap-5 mt-12">
-      <div className="flex min-w-0 items-center text-lg text-slate-900 dark:text-gray-400">Image, Name, with Social Links and Project Links</div>
+      <div className="flex min-w-0 items-center text-lg text-slate-900 dark:text-gray-400">
+        Image, Name, with Social Links and Project Links
+      </div>
       <div className="flex p-6 md:px-2 border-gray-200 border border-solid rounded-lg">
         <article className="rounded-xl border border-gray-700 bg-gray-800 p-4">
           <div className="flex items-center gap-4">
-            <img
-              alt="Default avatar"
-              src="https://dev.semokids.com/contents/images/avatar_picture_1.jpg"
-              className="h-16 w-16 rounded-full object-cover"
-            />
+            <img alt="Default avatar" src={faker.image.url()} className="h-16 w-16 rounded-full object-cover" />
             <div>
               <h3 className="text-lg font-medium text-white">Claire Mac</h3>
               <div className="flow-root">

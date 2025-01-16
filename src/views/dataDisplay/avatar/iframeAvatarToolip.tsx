@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker';
+
 const IframeAvatarToolip = () => {
   const name1: string = '카직스';
   const name2: string = '모데카이저';
@@ -21,7 +23,7 @@ const IframeAvatarToolip = () => {
             <img
               data-tooltip-target="tooltip-jese"
               className="w-10 h-10 rounded"
-              src="https://dev.semokids.com/contents/images/avatar_picture_1.jpg"
+              src={faker.image.url()}
               alt="avatar_picture_1"
             />
           </div>
@@ -37,7 +39,7 @@ const IframeAvatarToolip = () => {
             <img
               data-tooltip-target="tooltip-jese"
               className="w-10 h-10 rounded"
-              src="https://dev.semokids.com/contents/images/avatar_picture_2.jpg"
+              src={faker.image.url()}
               alt="avatar_picture_2"
             />
           </div>
@@ -53,7 +55,7 @@ const IframeAvatarToolip = () => {
             <img
               data-tooltip-target="tooltip-jese"
               className="w-10 h-10 rounded"
-              src="https://dev.semokids.com/contents/images/avatar_picture_3.jpg"
+              src={faker.image.url()}
               alt="avatar_picture_3"
             />
           </div>
@@ -69,7 +71,7 @@ const IframeAvatarToolip = () => {
             <img
               data-tooltip-target="tooltip-jese"
               className="w-10 h-10 rounded"
-              src="https://dev.semokids.com/contents/images/avatar_picture_4.jpg"
+              src={faker.image.url()}
               alt="avatar_picture_4"
             />
           </div>

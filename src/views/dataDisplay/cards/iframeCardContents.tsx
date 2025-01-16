@@ -1,4 +1,6 @@
 import { dataType } from '@/interfaces/UtilityInterface';
+import { faker } from '@faker-js/faker';
+
 const IframeCardContents = () => {
   const data: dataType = {
     name: 'John Doe',
@@ -10,7 +12,10 @@ const IframeCardContents = () => {
 
   return (
     <div className="flex flex-col gap-5 mt-12">
-      <div className="flex min-w-0 items-center text-lg text-slate-900 dark:text-gray-400"> With Content, Image, Details and Gradient Border</div>
+      <div className="flex min-w-0 items-center text-lg text-slate-900 dark:text-gray-400">
+        {' '}
+        With Content, Image, Details and Gradient Border
+      </div>
       <div className="flex p-6 border-gray-200 border border-solid rounded-lg">
         <a href="#" className="relative block overflow-hidden rounded-lg border border-solid border-gray-100 p-6">
           <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
@@ -19,11 +24,7 @@ const IframeCardContents = () => {
               <h3 className="text-lg font-bold text-gray-900 dark:text-gray-500">{data.topic}</h3>
               <p className="mt-1 text-xs font-medium text-gray-600">By. {data.name}</p>
             </div>
-            <img
-              alt="Default avatar"
-              src="https://dev.semokids.com/contents/images/avatar_picture_2.jpg"
-              className="h-16 w-16 rounded-lg object-cover shadow-sm"
-            />
+            <img alt="Default avatar" src={faker.image.url()} className="h-16 w-16 rounded-lg object-cover shadow-sm" />
           </div>
           <div className="mt-4">
             <p className="max-w-[40ch] text-sm text-gray-500">{data.text}</p>

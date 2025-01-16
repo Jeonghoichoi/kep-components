@@ -299,12 +299,12 @@ const NavigationMeta: NavigationItem[] = [
       },
     ],
   },
-  {
-    path: '/kakaoAddress',
-    key: `kakaoAddress`,
-    label: '카카오 주소검색',
-    icon: `/kep-component/resources/icon/icon_menu_colors.svg`,
-  },
+  // {
+  //   path: '/kakaoAddress',
+  //   key: `kakaoAddress`,
+  //   label: '카카오 주소검색',
+  //   icon: `/kep-component/resources/icon/icon_menu_colors.svg`,
+  // },
   {
     key: `openAI`,
     label: 'openAI',

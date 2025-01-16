@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ListItem } from '@/interfaces/UtilityInterface';
 import ListAddFormModal from './listAddFormModal';
+import { faker } from '@faker-js/faker';
 
 const IframeAdvancedLists = () => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -66,11 +67,7 @@ const IframeAdvancedLists = () => {
                 <li key={item.key} className="p-4 sm:p-2">
                   <div className="flex items-center space-x-4">
                     <div className="flex-shrink-0">
-                      <img
-                        className="w-8 h-8 rounded-full"
-                        src="https://dev.semokids.com/contents/images/avatar_picture_1.jpg"
-                        alt="Neil image"
-                      />
+                      <img className="w-8 h-8 rounded-full" src={faker.image.url()} alt="Neil image" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-900 truncate dark:text-white">{item.name}</p>

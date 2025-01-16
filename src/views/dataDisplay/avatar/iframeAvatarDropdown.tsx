@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Item } from '@/interfaces/UtilityInterface';
 import { Popover, Transition } from '@headlessui/react';
+import { faker } from '@faker-js/faker';
 
 function IconOne() {
   return (
@@ -91,11 +92,7 @@ const IframeAvatarDropdown = () => {
             {({ open }) => (
               <>
                 <Popover.Button className={`group flex flex-col items-center gap-y-1 ${open ? '' : 'text-opacity-90'}`}>
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src="https://dev.semokids.com/contents/images/avatar_picture_1.jpg"
-                    alt="avatar_picture_1"
-                  />
+                  <img className="w-10 h-10 rounded-full" src={faker.image.url()} alt="avatar_picture_1" />
                   <span>Click Me</span>
                 </Popover.Button>
                 <Transition

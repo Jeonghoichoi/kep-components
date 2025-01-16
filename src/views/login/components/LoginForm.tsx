@@ -8,7 +8,7 @@ import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import Logo from '@/assets/logo.svg';
 const LoginForm = () => {
   const navigate = useNavigate();
-  
+
   // 상태관리
   const user = useStore((state) => state); // state => state 현재상태를 가져온 후 반환하는 함수
   const [formState, setFormState] = useState({
@@ -16,17 +16,17 @@ const LoginForm = () => {
     password: '',
     autoLogin: false,
   });
-  const formRemember = JSON.parse(getStoredLogin()!); 
+  const formRemember = JSON.parse(getStoredLogin()!);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formState.id === user.mem_id && formState.password === user.password) {
-      alert(formState.id + "님 안녕하세요✨");
+      alert(formState.id + '님 안녕하세요✨');
       navigate('/home/index');
-      if(formState.autoLogin){
-        setStoredLogin(JSON.stringify(formState)) //로그인 정보 문자열로 저장
-      }else{
-        clearStoredLogin()
+      if (formState.autoLogin) {
+        setStoredLogin(JSON.stringify(formState)); //로그인 정보 문자열로 저장
+      } else {
+        clearStoredLogin();
       }
     } else {
       alert('로그인 실패하였습니다.');
@@ -40,15 +40,15 @@ const LoginForm = () => {
     setRegisterVisible(!registerVisible);
   };
 
-  useEffect(()=>{
-    if(formRemember === null) {
-      setFormState(formState)
-    }else{
-      setFormState(formRemember) // 로그인 정보 불러오기
+  useEffect(() => {
+    if (formRemember === null) {
+      setFormState(formState);
+    } else {
+      setFormState(formRemember); // 로그인 정보 불러오기
     }
-  }, [])
-  
-  const [passwordToggle, setPasswordToggle] = useState(false)
+  }, []);
+
+  const [passwordToggle, setPasswordToggle] = useState(false);
 
   return (
     <>
@@ -88,9 +88,9 @@ const LoginForm = () => {
                   <label htmlFor="password" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-white">
                     패스워드
                   </label>
-                  <div className='relative'>
+                  <div className="relative">
                     <input
-                      type={passwordToggle ?  'text' : 'password'}
+                      type={passwordToggle ? 'text' : 'password'}
                       name="password"
                       id="password"
                       defaultValue={formState.password}
@@ -104,45 +104,41 @@ const LoginForm = () => {
                         }));
                       }}
                     />
-                    <button 
-                      type='button'
-                      className='absolute right-4 top-1/2 -translate-y-1/2' 
-                      onClick={(e)=>{
+                    <button
+                      type="button"
+                      className="absolute right-4 top-1/2 -translate-y-1/2"
+                      onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        setPasswordToggle(!passwordToggle)
+                        setPasswordToggle(!passwordToggle);
                       }}
                     >
-                      {passwordToggle ? <EyeSlashIcon className="w-4 h-4" /> : <EyeIcon className="w-4 h-4" /> }
+                      {passwordToggle ? <EyeSlashIcon className="w-4 h-4" /> : <EyeIcon className="w-4 h-4" />}
                     </button>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-x-2">
-                      <input
-                        id="autoLogin"
-                        checked={formState.autoLogin}
-                        aria-describedby="autoLogin"
-                        type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        onChange={(e) => {
-                          setFormState((prevState) => ({
-                            ...prevState,
-                            autoLogin: e.target.checked,
-                          }));
-                        }}
-                      />
-                      <label htmlFor="autoLogin" className="text-gray-500 dark:text-gray-300 text-sm cursor-pointer ">
-                        로그인 저장
-                      </label>
+                    <input
+                      id="autoLogin"
+                      checked={formState.autoLogin}
+                      aria-describedby="autoLogin"
+                      type="checkbox"
+                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                      onChange={(e) => {
+                        setFormState((prevState) => ({
+                          ...prevState,
+                          autoLogin: e.target.checked,
+                        }));
+                      }}
+                    />
+                    <label htmlFor="autoLogin" className="text-gray-500 dark:text-gray-300 text-sm cursor-pointer ">
+                      로그인 저장
+                    </label>
                   </div>
-                  <button
-                    className="text-blue-500 text-sm"
-                    type="button"
-                    onClick={onRegisterToggle}
-                  >
+                  <button className="text-blue-500 text-sm" type="button" onClick={onRegisterToggle}>
                     회원가입
-                </button>
+                  </button>
                 </div>
                 <button
                   disabled={formState.id.length === 0 || formState.password.length === 0}
@@ -164,4 +160,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-

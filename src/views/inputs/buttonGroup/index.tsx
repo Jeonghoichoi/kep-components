@@ -155,7 +155,6 @@ const ButtonGroup = () => {
       {/* icons with a Button group */}
       <CodeBoard code={IconWithButtonGroupCode} />
       <IframeIconWithButtonGroup />
-      {/* <iframe src="/kep-component/button/button" height="400" width="400" /> */}
     </div>
   );
 };

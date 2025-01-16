@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker';
+
 const IframeAvatar = () => {
   return (
     <div className="flex flex-col gap-5 mt-12">
@@ -5,25 +7,17 @@ const IframeAvatar = () => {
       <div className="flex p-6 md:px-2 border-gray-200 border border-solid rounded-lg">
         <div className="flex flex-auto justify-evenly items-end md:flex-row md:gap-x-4 sm:flex-col sm:items-center sm:gap-y-4 ">
           <div className="flex flex-col gap-4 items-center">
-            <img
-              className="w-10 h-10 rounded"
-              src="https://dev.semokids.com/contents/images/avatar_picture_1.jpg"
-              alt="Default avatar"
-            />
+            <img className="w-10 h-10 rounded" src={faker.image.url()} alt="Default avatar" />
             <span>Default Type</span>
           </div>
           <div className="flex flex-col gap-4 items-center">
-            <img
-              className="w-10 h-10 rounded-full"
-              src="https://dev.semokids.com/contents/images/avatar_picture_2.jpg"
-              alt="Rounded avatar"
-            />
+            <img className="w-10 h-10 rounded-full" src={faker.image.url()} alt="Rounded avatar" />
             <span>Round Type</span>
           </div>
           <div className="flex flex-col gap-4 items-center">
             <img
               className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-              src="https://dev.semokids.com/contents/images/avatar_picture_3.jpg"
+              src={faker.image.url()}
               alt="Bordered avatar"
             />
             <span>Bordered Type</span>

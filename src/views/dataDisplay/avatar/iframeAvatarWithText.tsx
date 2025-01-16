@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker';
+
 const IframeAvatarWithText = () => {
   const name: string = 'My name is Kyobobook';
 
@@ -7,11 +9,7 @@ const IframeAvatarWithText = () => {
       <div className="flex p-6 md:px-2 border-gray-200 border border-solid rounded-lg">
         <div className="flex flex-auto justify-evenly items-end md:flex-row md:gap-x-4 sm:flex-col sm:items-center sm:gap-y-4 ">
           <div className="flex items-center space-x-4">
-            <img
-              className="w-10 h-10 rounded-full"
-              src="https://dev.semokids.com/contents/images/avatar_picture_1.jpg"
-              alt="avatar_picture_1"
-            />
+            <img className="w-10 h-10 rounded-full" src={faker.image.url()} alt="avatar_picture_1" />
             <div className="font-medium dark:text-white">
               <div>{name}</div>
               <div className="text-sm text-gray-500 dark:text-gray-400">

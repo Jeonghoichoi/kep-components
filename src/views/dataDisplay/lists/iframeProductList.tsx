@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SelectedItem } from '@/interfaces/UtilityInterface';
 import ListViewModal from './listViewModal';
+import { faker } from '@faker-js/faker';
 
 const IframeProductLists = () => {
   const items = [
@@ -75,7 +76,7 @@ const IframeProductLists = () => {
             <div className="group relative" key={item.key}>
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-80 ">
                 <img
-                  src={`https://dev.semokids.com/contents/images/${item.key}.png`}
+                  src={faker.image.url()}
                   alt={`${item.key} "이미지"`}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
