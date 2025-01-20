@@ -1,6 +1,10 @@
 import { Outlet } from 'react-router-dom';
+import useScrollToTop from '@/shared/useScrollTop';
+
 import Layoutmenu from './LayoutMenu';
 const Layout = () => {
+  useScrollToTop();
+
   return (
     <div className="dark:bg-gray-900 w-full">
       <main className="container">
